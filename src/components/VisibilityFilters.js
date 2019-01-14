@@ -1,6 +1,8 @@
 import React from "react";
 import cx from "classnames";
 import { VISIBILITY_FILTERS } from "../constants";
+import { connect } from 'react-redux';
+import { setFilter } from '../redux/actions';
 
 const VisibilityFilters = ({ activeFilter }) => {
   return (
@@ -24,4 +26,11 @@ const VisibilityFilters = ({ activeFilter }) => {
   );
 };
 
-export default VisibilityFilters;
+const mapStateToProps = state => {
+  return { activeFilter: state.visibilityFilter };
+};
+
+export default connect(
+  mapStateToProps,
+  { setFilter }
+)(VisibilityFilters);

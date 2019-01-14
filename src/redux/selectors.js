@@ -28,3 +28,16 @@ export const getTodos = store =>
 // Calls getTodoList with an argument of store
 // Using the map method, each index of the store array is 
 // used to call getTodoById using store and the id as arguments
+
+export const getTodosByVisibilityFilter = (store, visibilityFilter) => {
+  const allTodos = getTodos(store)
+  switch (visibilityFilter) {
+    case VISIBILITY_FILTERS.COMPLETED:
+      return allTodos.filter(todo => todo.completed)
+    case VISIBILITY_FILTERS.INCOMPLETE:
+      return allTodos.filter(todo => !todo.completed)
+    case VISIBILITY_FILTERS.ALL:
+    default:
+      return allTodos
+  }
+}
