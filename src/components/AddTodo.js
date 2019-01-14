@@ -13,6 +13,7 @@ class AddTodo extends React.Component {
   };
 
   handleAddTodo = () => {
+    // Add something to test if there's a blank input
     this.props.addTodo(this.state.input)
     //dispatches actions to add todo
     //addTodo is imported from actions.js
@@ -39,6 +40,4 @@ class AddTodo extends React.Component {
 
 export default connect(
   null,
-  { addTodo }
-)
-(AddTodo)
+  { addTodo })(AddTodo)
